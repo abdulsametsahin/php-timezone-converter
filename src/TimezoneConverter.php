@@ -30,14 +30,30 @@ class TimezoneConverter
         throw new \InvalidArgumentException("Invalid timezone: $timezone");
     }
 
-    public static function toOlson(string $timezone): string
+    public static function toOlson(string $timezone, bool $returnSame = true): string
     {
-        return self::fromWindows($timezone);
+        try {
+            return self::fromWindows($timezone);
+        } catch (\InvalidArgumentException $e) {
+            if ($returnSame) {
+                return $timezone;
+            }
+
+            throw $e;
+        }
     }
 
-    public static function toWindows(string $timezone): string
+    public static function toWindows(string $timezone, bool $returnSame = true): string
     {
-        return self::fromOlson($timezone);
+        try {
+            return self::fromOlson($timezone);
+        } catch (\InvalidArgumentException $e) {
+            if ($returnSame) {
+                return $timezone;
+            }
+
+            throw $e;
+        }
     }
 
     private static function getTimezones(): array

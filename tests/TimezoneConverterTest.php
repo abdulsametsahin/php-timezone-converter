@@ -29,4 +29,10 @@ class TimezoneConverterTest extends TestCase
 
         $this->assertContains(\Abdulsametsahin\TimezoneConverter\TimezoneConverter::fromWindows($timezone), $expected);
     }
+
+    public function testConvertToOlsonIfWindowsOtherwiseReturnSame()
+    {
+        $timezone = "America/New_York";
+        $this->assertEquals($timezone, \Abdulsametsahin\TimezoneConverter\TimezoneConverter::toOlson($timezone));
+    }
 }
