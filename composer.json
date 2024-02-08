@@ -2,6 +2,8 @@
     "name": "abdulsametsahin/php-timezone-converter",
     "description": "A PHP utility library for seamless conversion between Windows and IANA timezones, enabling interoperability and enhancing date/time handling across different systems. Ideal for projects requiring compatibility with various timezone standards.",
     "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Abdulsametsahin\\TimezoneConverter\\": "src/"
